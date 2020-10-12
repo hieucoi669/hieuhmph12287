@@ -42,4 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void dangKy(View view) {
+        Intent i = new Intent(this, NguoiDungActivity.class);
+        startActivity(i);
+    }
 }

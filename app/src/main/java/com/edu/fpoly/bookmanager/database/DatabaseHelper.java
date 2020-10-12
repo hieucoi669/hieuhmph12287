@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 import com.edu.fpoly.bookmanager.dao.SachDAO;
+import com.edu.fpoly.bookmanager.dao.TheLoaiDAO;
 import com.edu.fpoly.bookmanager.dao.UserDAO;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -21,11 +22,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(UserDAO.SQL_USER);
         sqLiteDatabase.execSQL(SachDAO.SQL_SACH);
+        sqLiteDatabase.execSQL(TheLoaiDAO.SQL_THE_LOAI);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop table if exists " + UserDAO.TABLE_NAME);
-        sqLiteDatabase.execSQL("drop table if exists "+SachDAO.TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists " + SachDAO.TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists " + TheLoaiDAO.TABLE_NAME);
     }
 }

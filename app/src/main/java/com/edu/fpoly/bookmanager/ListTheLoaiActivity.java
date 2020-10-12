@@ -12,12 +12,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 
+import com.edu.fpoly.bookmanager.adapter.TheLoaiAdapter;
+import com.edu.fpoly.bookmanager.dao.TheLoaiDAO;
+import com.edu.fpoly.bookmanager.model.TheLoai;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListTheLoaiActivity extends AppCompatActivity {
 
+    public static List<TheLoai> listTL;
     ListView lvTheLoai;
+    TheLoaiDAO theLoaiDAO;
+    TheLoaiAdapter theLoaiAdapter;
 
 
     @Override
@@ -25,10 +32,16 @@ public class ListTheLoaiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("THỂ LOẠI");
         setContentView(R.layout.activity_list_the_loai);
-        lvTheLoai = (ListView) findViewById(R.id.lvTheLoai);
+        lvTheLoai = findViewById(R.id.lvTheLoai);
         registerForContextMenu(lvTheLoai);
 
 
+        lvTheLoai = findViewById(R.id.lvTheLoai);
+        theLoaiDAO = new TheLoaiDAO(ListTheLoaiActivity.this);
+        listTL = theLoaiDAO.getAllTheLoai();
+
+        theLoaiAdapter = new TheLoaiAdapter(this,listTL);
+        lvTheLoai.setAdapter(theLoaiAdapter);
         lvTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,10 +67,13 @@ public class ListTheLoaiActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-
+        listTL = theLoaiDAO.getAllTheLoai();
+        theLoaiAdapter = new TheLoaiAdapter(this,listTL);
+        lvTheLoai.setAdapter(theLoaiAdapter);
     }
 
     @Override
