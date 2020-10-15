@@ -73,4 +73,34 @@ public class UserDAO {
         }
         return 1;//xoa thanh cong
     }
+    public int updateUser(User u)
+    {
+        ContentValues values = new ContentValues();
+        values.put("username", u.getUsername());
+        values.put("password", u.getPassword());
+        values.put("phone", u.getPhone());
+        values.put("hoten" ,u.getHoten());
+        int kq = db.update(TABLE_NAME,values,"username=?", new String[]{u.getUsername()});
+        if(kq==0)
+        {
+            return -1;
+        }
+        return 1;
+    }
+    public User checkUserExist(String username)
+    {
+        Cursor result = db.query(TABLE_NAME,null,"username=?",new String[]{username},null,null,null);
+        result.moveToFirst();
+        if(result.getCount() != 0)
+        {
+            User u = new User();
+            u.setUsername(result.getString(0));
+            u.setPassword(result.getString(1));
+            u.setPhone(result.getString(2));
+            u.setHoten(result.getString(3));
+            return u;
+        }else {
+            return null;
+        }
+    }
 }

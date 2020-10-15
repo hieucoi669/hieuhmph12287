@@ -7,9 +7,10 @@
         android:id="@+id/ivIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/logo2"
+        android:src="@drawable/book_main"
         android:scaleType="fitXY" />
     <LinearLayout
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="4dp"
@@ -18,17 +19,21 @@
         android:orientation="vertical">
 
         <TextView
+            android:paddingLeft="16dp"
             android:id="@+id/tvMaTheLoai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:singleLine="true"
+            android:text="aaaaaa"
             android:textStyle="bold" />
 
         <TextView
+            android:paddingLeft="16dp"
             android:id="@+id/tvTenTheLoai"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="bbbbbbb"
             android:gravity="center_vertical" />
     </LinearLayout>
     <ImageView
@@ -36,5 +41,5 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_close" />
+        android:src="@drawable/kids_delete" />
 </RelativeLayout>

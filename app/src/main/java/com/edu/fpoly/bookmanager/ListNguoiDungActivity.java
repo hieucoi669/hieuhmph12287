@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
 import com.edu.fpoly.bookmanager.adapter.UserAdapter;
 import com.edu.fpoly.bookmanager.dao.UserDAO;
 import com.edu.fpoly.bookmanager.model.User;
@@ -37,19 +36,37 @@ public class ListNguoiDungActivity extends AppCompatActivity {
         listUser = userDAO.getAllNguoiDung();
         userAdapter = new UserAdapter(this,listUser);
         lvUser.setAdapter(userAdapter);
+        Log.i("tt", "333");
+
+        lvUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(ListNguoiDungActivity.this, NguoiDungDetailActivity.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putString("tenUser",listUser.get(i).getHoten());
+                bundle.putString("phoneUser",listUser.get(i).getPhone());
+                bundle.putString("idUser",listUser.get(i).getUsername());
+                Log.i("tt", "222");
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        listUser = userDAO.getAllNguoiDung();
+        userAdapter = new UserAdapter(this,listUser);
+        lvUser.setAdapter(userAdapter);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_user, menu);
         return true;
-
     }
 
     @Override

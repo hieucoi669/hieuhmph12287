@@ -45,7 +45,15 @@ public class ListTheLoaiActivity extends AppCompatActivity {
         lvTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(ListTheLoaiActivity.this,
+                        TheLoaiDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("maTL", listTL.get(position).getMaTL());
+                bundle.putString("tenTL", listTL.get(position).getTenTL());
+                bundle.putString("moTa",listTL.get(position).getMoTa());
+                bundle.putString("viTri",listTL.get(position).getViTri());
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

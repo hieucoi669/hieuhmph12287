@@ -9,60 +9,112 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context=".SachActivity">
-    <EditText
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edMaSach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mã sách" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <android.support.design.widget.TextInputEditText
+            android:inputType="textCapCharacters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mã Sách"/>
+
+    </android.support.design.widget.TextInputLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        >
+        android:layout_marginBottom="16dp">
+
         <Spinner
             android:id="@+id/spnTheLoai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:layout_weight="4"
-
-            />
+            android:layout_weight="4" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/button_plus_green"
-            />
+            android:src="@drawable/button_plus_green" />
+
     </LinearLayout>
 
-
-    <EditText
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edTenSach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên sách" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <EditText
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên sách"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edTacGia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tác giả" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <EditText
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tác giả"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edNXB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhà xuất bản" />
-    <EditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhà xuất bản"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edGiaBia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Giá bìa" />
-    <EditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá bìa"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginBottom="16dp"
         android:id="@+id/edSoLuong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Số lượng" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <android.support.design.widget.TextInputEditText
+            android:inputType="textCapCharacters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số lượng"/>
+
+    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -7,28 +7,34 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    String strUserName, strPassword;
+    public static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("QUẢN LÝ SÁCH");
         setContentView(R.layout.activity_main);
-        if (checkLoginShap()<0){
+        if (checkLogin()<0){
             Intent i = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(i);
         }
     }
 
-    public int checkLoginShap(){
+    public int checkLogin(){
         SharedPreferences pref = getSharedPreferences("USER_FILE",MODE_PRIVATE);
         boolean chk = pref.getBoolean("REMEMBER",false);
-        if (chk){
-            strUserName = pref.getString("USERNAME","");
-            strPassword = pref.getString("PASSWORD","");
+        if(chk){
+            username = pref.getString("USERNAME", "");
             return 1;
+        }else{
+            Intent i = getIntent();
+            username = i.getStringExtra("Logged");
+            if(username != null){
+                return 1;
+            }else{
+                return -1;
+            }
         }
-        return -1;
     }
     public void viewNguoiDung(View v){
         Intent intent = new Intent(MainActivity.this,ListNguoiDungActivity.class);

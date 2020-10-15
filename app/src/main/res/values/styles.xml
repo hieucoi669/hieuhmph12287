@@ -8,5 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    <style name="myTextLabel" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">#FF0000</item>
+<!--        <item name="android:textSize">12sp</item>-->
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">#000000</item>
+        <item name="colorControlNormal">#4CAF50</item>
+        <item name="colorControlActivated">#FFEB3B</item>
+    </style>
 </resources>

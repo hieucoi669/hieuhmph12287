@@ -72,7 +72,7 @@ public class TheLoaiDAO {
 
     public int deleteTheLoai(String maTL)
     {
-        int kq = db.delete(TABLE_NAME, "maTL=?", new String[]{maTL});
+        int kq = db.delete(TABLE_NAME, "matheloai=?", new String[]{maTL});
         if(kq==0)
         {
             return -1;
@@ -87,7 +87,7 @@ public class TheLoaiDAO {
         values.put("tenTL", tl.getTenTL());
         values.put("moTa", tl.getMoTa());
         values.put("viTri" ,tl.getViTri());
-        int kq = db.update(TABLE_NAME,values,"maTL=?", new String[]{tl.getMaTL()});
+        int kq = db.update(TABLE_NAME,values,"matheloai=?", new String[]{tl.getMaTL()});
         if(kq==0)
         {
             return -1;
