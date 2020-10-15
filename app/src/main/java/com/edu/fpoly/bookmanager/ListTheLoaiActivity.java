@@ -50,8 +50,8 @@ public class ListTheLoaiActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("maTL", listTL.get(position).getMaTL());
                 bundle.putString("tenTL", listTL.get(position).getTenTL());
-                bundle.putString("moTa",listTL.get(position).getMoTa());
-                bundle.putString("viTri",listTL.get(position).getViTri());
+                bundle.putString("moTaTL",listTL.get(position).getMoTa());
+                bundle.putString("viTriTL",listTL.get(position).getViTri());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

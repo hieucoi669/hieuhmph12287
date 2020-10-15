@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="320dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:orientation="vertical"
     android:layout_gravity="center|top"
     tools:context="com.edu.fpoly.bookmanager.NguoiDungDetailActivity">
@@ -45,8 +46,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg"
-        android:text="Sửa"
+        android:fontFamily="@font/baloo"
         android:onClick="suaUser"
-        android:textColor="#ffffff" />
+        android:text="Sửa"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
 
 </LinearLayout>

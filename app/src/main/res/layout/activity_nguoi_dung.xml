@@ -6,7 +6,7 @@
     android:padding="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_gravity="center"
+    android:layout_gravity="center|top"
     tools:context="com.edu.fpoly.bookmanager.NguoiDungActivity">
     <ImageView
         android:layout_width="150dp"

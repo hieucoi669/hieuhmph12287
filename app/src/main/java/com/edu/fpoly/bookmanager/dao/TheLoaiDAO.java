@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.edu.fpoly.bookmanager.database.DatabaseHelper;
 import com.edu.fpoly.bookmanager.model.TheLoai;
+import com.edu.fpoly.bookmanager.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,5 +94,22 @@ public class TheLoaiDAO {
             return -1;
         }
         return 1;
+    }
+
+    public TheLoai checkTLExist(String maTL)
+    {
+        Cursor result = db.query(TABLE_NAME,null,"matheloai=?",new String[]{maTL},null,null,null);
+        result.moveToFirst();
+        if(result.getCount() != 0)
+        {
+            TheLoai tl = new TheLoai();
+            tl.setMaTL(result.getString(0));
+            tl.setTenTL(result.getString(1));
+            tl.setMoTa(result.getString(2));
+            tl.setViTri(result.getString(3));
+            return tl;
+        }else {
+            return null;
+        }
     }
 }
