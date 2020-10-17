@@ -4,12 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.edu.fpoly.bookmanager.database.DatabaseHelper;
 import com.edu.fpoly.bookmanager.model.Sach;
-import com.edu.fpoly.bookmanager.model.TheLoai;
-import com.edu.fpoly.bookmanager.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,7 @@ public class SachDAO {
     public static final String SQL_SACH = "create table "+TABLE_NAME+"(" +
             "masach text PRIMARY KEY," +
             "tensach text," +
-            "tentheloai text," +
+            "matheloai text," +
             "tacgia text," +
             "nxb text," +
             "giabia text," +
@@ -43,7 +40,7 @@ public class SachDAO {
             Sach s = new Sach();
             s.setMasach(cursor.getString(0));
             s.setTensach(cursor.getString(1));
-            s.setTentheloai(cursor.getString(2));
+            s.setMatheloai(cursor.getString(2));
             s.setTacgia(cursor.getString(3));
             s.setNxb(cursor.getString(4));
             s.setGiabia(cursor.getString(5));
@@ -60,7 +57,7 @@ public class SachDAO {
         ContentValues values = new ContentValues();
         values.put("masach",sach.getMasach());
         values.put("tensach",sach.getTensach());
-        values.put("tentheloai",sach.getTentheloai());
+        values.put("matheloai",sach.getMatheloai());
         values.put("tacgia",sach.getTacgia());
         values.put("nxb",sach.getNxb());
         values.put("giabia",sach.getGiabia());
@@ -98,7 +95,7 @@ public class SachDAO {
             Sach s = new Sach();
             s.setMasach(result.getString(0));
             s.setTensach(result.getString(1));
-            s.setTentheloai(result.getString(2));
+            s.setMatheloai(result.getString(2));
             s.setTacgia(result.getString(3));
             s.setNxb(result.getString(4));
             s.setGiabia(result.getString(5));
@@ -113,7 +110,8 @@ public class SachDAO {
     {
         ContentValues values = new ContentValues();
         values.put("masach", sach.getMasach());
-        values.put("tentheloai", sach.getTentheloai());
+        values.put("tensach", sach.getTensach());
+        values.put("matheloai", sach.getMatheloai());
         values.put("tacgia", sach.getTacgia());
         values.put("nxb" ,sach.getNxb());
         values.put("giabia" ,sach.getGiabia());

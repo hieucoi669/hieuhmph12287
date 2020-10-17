@@ -3,16 +3,16 @@ package com.edu.fpoly.bookmanager.model;
 public class Sach {
     private String masach;
     private String tensach;
-    private String tentheloai;
+    private String matheloai;
     private String tacgia;
     private String nxb;
     private String giabia;
     private String soluong;
 
-    public Sach(String masach, String tensach, String tentheloai, String tacgia, String nxb, String giabia, String soluong) {
+    public Sach(String masach, String tensach, String matheloai, String tacgia, String nxb, String giabia, String soluong) {
         this.masach = masach;
         this.tensach = tensach;
-        this.tentheloai = tentheloai;
+        this.matheloai = matheloai;
         this.tacgia = tacgia;
         this.nxb = nxb;
         this.giabia = giabia;
@@ -38,12 +38,12 @@ public class Sach {
         this.tensach = tensach;
     }
 
-    public String getTentheloai() {
-        return tentheloai;
+    public String getMatheloai() {
+        return matheloai;
     }
 
-    public void setTentheloai(String tentheloai) {
-        this.tentheloai = tentheloai;
+    public void setMatheloai(String matheloai) {
+        this.matheloai = matheloai;
     }
 
     public String getTacgia() {

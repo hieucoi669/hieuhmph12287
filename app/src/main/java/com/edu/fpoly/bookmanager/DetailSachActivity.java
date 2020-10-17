@@ -3,6 +3,7 @@ package com.edu.fpoly.bookmanager;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
@@ -49,11 +50,13 @@ public class DetailSachActivity extends AppCompatActivity {
         String NXB = bundle.getString("NXB");
         String giaBia = bundle.getString("giaBia");
         String soLuong = bundle.getString("soLuong");
-        String theloai = bundle.getString("tenTL");
+        String theloai = bundle.getString("maTL");
+
+        TheLoai tl = theLoaiDAO.getTheloaibyMaTL(theloai);
 
         tvMaSachSua.setText("Mã sách: " + maSach);
         edTenSachSua.getEditText().setText(tensach);
-        actvTheLoaiSua.setText(theloai);
+        actvTheLoaiSua.setText(tl.getTenTL());
         edTacGiaSua.getEditText().setText(tacGia);
         edNXBSua.getEditText().setText(NXB);
         edGiaBiaSua.getEditText().setText(giaBia);
@@ -73,18 +76,19 @@ public class DetailSachActivity extends AppCompatActivity {
 
     public void suaSach(View view) {
         String tensach = checkTenSach();
-        String tentl = checkTenTheLoai();
+        String matl = checkTenTheLoai();
         String tacgia = checkTacGia();
         String nxb = checkNxb();
         String giabia = checkGiaBia();
         String soluong = checkSoLuong();
 
         if(tacgia != null && nxb != null && giabia != null && soluong != null &&
-            tensach != null && tentl != null){
+            tensach != null && matl != null){
+            Log.i("check" , tensach);
             Sach s = new Sach();
             s.setMasach(maSach);
             s.setTensach(tensach);
-            s.setTentheloai(tentl);
+            s.setMatheloai(matl);
             s.setTacgia(tacgia);
             s.setNxb(nxb);
             s.setGiabia(giabia);
@@ -124,14 +128,17 @@ public class DetailSachActivity extends AppCompatActivity {
         tilTheLoaiSua.setError(null);
         try{
             String tentl = actvTheLoaiSua.getText().toString();
+
             if(tentl.length() == 0){
                 tilTheLoaiSua.setError("Tên thể loại không được để trống!");
                 return null;
-            }else if(theLoaiDAO.checkTLExist(tentl) == null){
+            }
+            TheLoai tl = theLoaiDAO.checkTLExist(tentl);
+            if(tl == null){
                 tilTheLoaiSua.setError("Thể loại không tồn tại");
                 return null;
             }else{
-                return tentl;
+                return tl.getMaTL();
             }
         }catch (Exception e){
             tilTheLoaiSua.setError("Tên thể loại không hợp lệ!");

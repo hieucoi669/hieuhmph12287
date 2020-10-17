@@ -3,6 +3,7 @@ package com.edu.fpoly.bookmanager;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,8 +45,8 @@ public class TheLoaiDetailActivity extends AppCompatActivity {
         String tentl = checkTenTL();
         String moTatl = checkMoTaTL();
         String viTritl = checkViTriTL();
-
         if(tentl != null && moTatl != null && viTritl != null){
+
             TheLoai tl = new TheLoai();
             tl.setMaTL(maTL);
             tl.setTenTL(tentl);

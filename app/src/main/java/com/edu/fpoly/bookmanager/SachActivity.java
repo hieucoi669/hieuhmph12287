@@ -56,18 +56,18 @@ public class SachActivity extends AppCompatActivity {
     public void themSach(View view) {
         String masach = checkMaSach();
         String tensach = checkTenSach();
-        String tentl = checkTenTheLoai();
+        String matl = checkTenTheLoai();
         String tacgia = checkTacGia();
         String nxb = checkNxb();
         String giabia = checkGiaBia();
         String soluong = checkSoLuong();
 
-        if(masach != null && tensach != null && tentl != null && tacgia != null
+        if(masach != null && tensach != null && matl != null && tacgia != null
             && nxb != null && giabia != null && soluong != null){
             Sach s = new Sach();
             s.setMasach(masach);
             s.setTensach(tensach);
-            s.setTentheloai(tentl);
+            s.setMatheloai(matl);
             s.setTacgia(tacgia);
             s.setNxb(nxb);
             s.setGiabia(giabia);
@@ -76,6 +76,7 @@ public class SachActivity extends AppCompatActivity {
             {
                 Toast.makeText(getApplicationContext(),
                         "Thêm sách thành công!",Toast.LENGTH_LONG).show();
+                finish();
             }
         }else{
             Toast.makeText(getApplicationContext(),
@@ -129,14 +130,17 @@ public class SachActivity extends AppCompatActivity {
         tilTheLoai.setError(null);
         try{
             String tentl = actvTheLoai.getText().toString();
+
             if(tentl.length() == 0){
                 tilTheLoai.setError("Tên thể loại không được để trống!");
                 return null;
-            }else if(theLoaiDAO.checkTLExist(tentl) == null){
+            }
+            TheLoai tl = theLoaiDAO.checkTLExist(tentl);
+            if(tl == null){
                 tilTheLoai.setError("Thể loại không tồn tại");
                 return null;
             }else{
-                return tentl;
+                return tl.getMaTL();
             }
         }catch (Exception e){
             tilTheLoai.setError("Tên thể loại không hợp lệ!");

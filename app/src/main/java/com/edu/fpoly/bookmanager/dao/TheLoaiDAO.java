@@ -84,10 +84,10 @@ public class TheLoaiDAO {
     public int updateTheLoai(TheLoai tl)
     {
         ContentValues values = new ContentValues();
-        values.put("maTL", tl.getMaTL());
-        values.put("tenTL", tl.getTenTL());
-        values.put("moTa", tl.getMoTa());
-        values.put("viTri" ,tl.getViTri());
+        values.put("matheloai", tl.getMaTL());
+        values.put("tentheloai", tl.getTenTL());
+        values.put("mota", tl.getMoTa());
+        values.put("vitri" ,tl.getViTri());
         int kq = db.update(TABLE_NAME,values,"matheloai=?", new String[]{tl.getMaTL()});
         if(kq==0)
         {
@@ -99,6 +99,23 @@ public class TheLoaiDAO {
     public TheLoai checkTLExist(String tenTL)
     {
         Cursor result = db.query(TABLE_NAME,null,"tentheloai=?",new String[]{tenTL},null,null,null);
+        result.moveToFirst();
+        if(result.getCount() != 0)
+        {
+            TheLoai tl = new TheLoai();
+            tl.setMaTL(result.getString(0));
+            tl.setTenTL(result.getString(1));
+            tl.setMoTa(result.getString(2));
+            tl.setViTri(result.getString(3));
+            return tl;
+        }else {
+            return null;
+        }
+    }
+
+    public TheLoai getTheloaibyMaTL(String maTL)
+    {
+        Cursor result = db.query(TABLE_NAME,null,"matheloai=?",new String[]{maTL},null,null,null);
         result.moveToFirst();
         if(result.getCount() != 0)
         {

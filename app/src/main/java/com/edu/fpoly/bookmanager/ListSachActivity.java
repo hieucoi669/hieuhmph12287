@@ -39,7 +39,7 @@ public class ListSachActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("maSach", listSach.get(position).getMasach());
                 bundle.putString("tenSach", listSach.get(position).getTensach());
-                bundle.putString("tenTL", listSach.get(position).getTentheloai());
+                bundle.putString("maTL", listSach.get(position).getMatheloai());
                 bundle.putString("tacGia",listSach.get(position).getTacgia());
                 bundle.putString("NXB",listSach.get(position).getNxb());
                 bundle.putString("giaBia",listSach.get(position).getGiabia());
