@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SachActivity(View v){
-        Intent intent = new Intent(MainActivity.this,SachActivity.class);
+        Intent intent = new Intent(MainActivity.this,ListSachActivity.class);
         startActivity(intent);
     }
     public void HoaDonActivity(View v){

@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.edu.fpoly.bookmanager.database.DatabaseHelper;
 import com.edu.fpoly.bookmanager.model.Sach;
+import com.edu.fpoly.bookmanager.model.TheLoai;
 import com.edu.fpoly.bookmanager.model.User;
 
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class SachDAO {
         }
         return 1;
     }
+
     public int deleteSach(String tensach)
     {
         int kq = db.delete(TABLE_NAME,"tensach=?",new String[]{tensach});
@@ -85,5 +87,42 @@ public class SachDAO {
             return -1;//xoa khong thanh cong
         }
         return 1;//xoa thanh cong
+    }
+
+    public Sach checkSachExist(String masach)
+    {
+        Cursor result = db.query(TABLE_NAME,null,"masach=?",new String[]{masach},null,null,null);
+        result.moveToFirst();
+        if(result.getCount() != 0)
+        {
+            Sach s = new Sach();
+            s.setMasach(result.getString(0));
+            s.setTensach(result.getString(1));
+            s.setTentheloai(result.getString(2));
+            s.setTacgia(result.getString(3));
+            s.setNxb(result.getString(4));
+            s.setGiabia(result.getString(5));
+            s.setSoluong(result.getString(6));
+            return s;
+        }else {
+            return null;
+        }
+    }
+
+    public int updateSach(Sach sach)
+    {
+        ContentValues values = new ContentValues();
+        values.put("masach", sach.getMasach());
+        values.put("tentheloai", sach.getTentheloai());
+        values.put("tacgia", sach.getTacgia());
+        values.put("nxb" ,sach.getNxb());
+        values.put("giabia" ,sach.getGiabia());
+        values.put("soluong" ,sach.getSoluong());
+        int kq = db.update(TABLE_NAME,values,"maSach=?", new String[]{sach.getMasach()});
+        if(kq==0)
+        {
+            return -1;
+        }
+        return 1;
     }
 }

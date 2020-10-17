@@ -96,9 +96,9 @@ public class TheLoaiDAO {
         return 1;
     }
 
-    public TheLoai checkTLExist(String maTL)
+    public TheLoai checkTLExist(String tenTL)
     {
-        Cursor result = db.query(TABLE_NAME,null,"matheloai=?",new String[]{maTL},null,null,null);
+        Cursor result = db.query(TABLE_NAME,null,"tentheloai=?",new String[]{tenTL},null,null,null);
         result.moveToFirst();
         if(result.getCount() != 0)
         {
